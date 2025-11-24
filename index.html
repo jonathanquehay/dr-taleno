@@ -8,11 +8,11 @@
     
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧑‍⚕️</text></svg>">
+    <link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><path fill='%23007BFF' d='M128 0C110.3 0 96 14.33 96 32V224C96 232.8 98.34 241 102.7 247.9L240.7 480C244.1 486.2 250.6 490.5 257.6 491.8C264.6 493.1 272.1 491.2 277.6 486.2L415.6 247.9C419.7 241 421.1 232.8 421.3 224V32C421.3 14.33 406.1 0 389.3 0H128zM240 368C240 384.9 253.1 398 270.2 398C287.3 398 300.4 384.9 300.4 368C300.4 351.1 287.3 338 270.2 338C253.1 338 240 351.1 240 368zM304 224H224V32H304V224z'/></svg>">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -21,20 +21,23 @@
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
     
     <style>
-        html, body { max-width: 100% !important; overflow-x: hidden !important; }
-        /* Variables de color - Tema Profesional Claro: Azul y Verde Suave */
+        /* Variables de color - Tema Oscuro Elegante: Negro, Dorado y Menta */
         :root {
-            --bg-light: #FFFFFF; /* Blanco */
-            --bg-secondary: #F0F4F8; /* Azul claro suave */
-            --primary: #007BFF; /* Azul profesional */
-            --secondary: #28A745; /* Verde suave */
-            --text-primary: #333333; /* Gris oscuro */
-            --text-secondary: #666666; /* Gris medio */
+            --bg-light: #111111; /* Negro profundo */
+            --bg-secondary: #1A1A1A; /* Negro un poco más claro */
+            --primary: #D4AF37; /* Dorado elegante */
+            --secondary: #00FFAA; /* Verde menta brillante */
+            --text-primary: #F0F4F8; /* Blanco azulado */
+            --text-secondary: #CCCCCC; /* Gris claro */
+        }
+
+        .font-calligraphic {
+            font-family: 'Great Vibes', cursive;
         }
         
         /* Fuentes globales */
         body {
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Poppins', sans-serif;
             color: var(--text-primary);
             background-color: var(--bg-light);
             line-height: 1.7;
@@ -42,32 +45,29 @@
         }
         
         h1, h2, h3, h4, h5, h6 {
-            font-family: 'Montserrat', sans-serif;
             color: var(--text-primary);
             font-weight: 700;
             letter-spacing: 1px;
         }
         
-        /* Ajuste de H2 */
         h2 {
             color: var(--primary);
         }
         
-        /* Header sticky */
         header {
             transition: all 0.4s ease;
-            border-bottom: 1px solid var(--primary);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
         }
         
         header.scrolled {
-            background: var(--bg-light) !important;
+            background: rgba(17, 17, 17, 0.9) !important;
+            backdrop-filter: blur(10px);
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
         
-        /* Botones CTA */
         .btn-cta {
             background: var(--primary);
-            color: white;
+            color: #111;
             padding: 16px 40px;
             border-radius: 50px;
             font-weight: 700;
@@ -83,35 +83,34 @@
         
         .btn-cta:hover {
             transform: translateY(-3px) scale(1.05);
-            background: #0056b3; /* Azul más oscuro */
+            background: #EACD65; /* Dorado más claro */
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
         }
         
-        /* Tarjetas */
         .card {
             background: var(--bg-secondary);
             border-radius: 20px;
-            border: 1px solid var(--primary);
+            border: 1px solid rgba(212, 175, 55, 0.2);
             transition: all 0.4s ease;
             overflow: hidden;
         }
         
         .card:hover {
             transform: translateY(-10px) scale(1.02);
-            border-color: var(--secondary);
+            border-color: var(--primary);
         }
         
-        /* Menú móvil */
         .mobile-menu {
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.3s ease;
+            background: var(--bg-secondary);
         }
         
         .mobile-menu.active {
             max-height: 400px;
         }
         
-        /* Hero carousel altura completa */
         .hero-swiper {
             height: 100vh;
             min-height: 600px;
@@ -130,25 +129,27 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(240, 244, 248, 0.7));
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5));
         }
         
         .hero-slide h1 {
-            font-weight: 900;
+            font-weight: normal;
             letter-spacing: 2px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
         }
         
         .hero-slide p {
-            font-weight: 500;
+            font-weight: 400;
             letter-spacing: 1px;
+            color: var(--text-secondary);
         }
         
-        /* Galería con filtros */
         .gallery-item {
             overflow: hidden;
             border-radius: 10px;
             cursor: pointer;
             position: relative;
+            border: 1px solid rgba(212, 175, 55, 0.2);
         }
         
         .gallery-item img {
@@ -162,17 +163,12 @@
             transform: scale(1.1);
         }
         
-        .gallery-item.hidden {
-            display: none;
-        }
-        
-        /* Botón flotante de WhatsApp */
         .whatsapp-float {
             position: fixed;
             bottom: 30px;
             right: 30px;
             background: var(--secondary);
-            color: white;
+            color: #111;
             width: 70px;
             height: 70px;
             border-radius: 50%;
@@ -187,124 +183,19 @@
         
         .whatsapp-float:hover {
             transform: scale(1.15) rotate(5deg);
+            background: #33ffbb;
         }
-        
-        /* Badges de productos */
-        .badge {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: var(--primary);
-            color: white;
-            padding: 8px 18px;
-            border-radius: 25px;
-            font-size: 13px;
-            font-weight: 800;
-            z-index: 10;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        .badge.premium {
-            background: var(--secondary);
-        }
-        
-        .badge.oferta {
-            background: #FFC107; /* Amarillo suave */
-        }
-        
-        /* Estrellas de calificación */
-        .stars {
-            color: #FFC107; /* Amarillo */
-        }
-        
-        /* Fondo textura claro */
-        .bg-texture {
-            background-color: var(--bg-light);
-            background-image: 
-                linear-gradient(rgba(0, 123, 255, 0.05) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0, 123, 255, 0.05) 1px, transparent 1px);
-            background-size: 50px 50px;
-            position: relative;
-        }
-        
-        .bg-texture::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 50% 50%, rgba(0, 123, 255, 0.1) 0%, transparent 70%);
-            pointer-events: none;
-        }
-        
-        /* Swiper customización */
-        .swiper-pagination-bullet {
-            background: #CCCCCC;
-            opacity: 0.5;
-        }
-        
-        .swiper-pagination-bullet-active {
-            background: var(--primary);
-            opacity: 1;
-        }
-        
-        .swiper-button-next,
-        .swiper-button-prev {
-            color: var(--primary);
-        }
-        
-        /* Scroll suave */
-        html {
-            scroll-behavior: smooth;
-        }
-        
-        /* Secciones con fondo claro */
-        section {
-            position: relative;
-        }
-        
-        section:nth-child(odd) {
-            background: var(--bg-light);
-        }
-        
-        section:nth-child(even) {
-            background: var(--bg-secondary);
-        }
-        
-        /* Mejoras tipográficas */
+
         p {
             color: var(--text-secondary);
             line-height: 1.8;
             font-size: 17px;
         }
-        
-        /* Card de producto */
-        .product-card {
-            border: 1px solid var(--primary);
-            transition: all 0.4s ease;
+
+        section:nth-child(even) {
+            background: var(--bg-secondary);
         }
-        
-        .product-card:hover {
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        
-        /* Service cards */
-        .service-card {
-            border-left: 4px solid var(--primary);
-            padding-left: 20px;
-        }
-        
-        .service-card:nth-child(2) {
-            border-left-color: var(--secondary);
-        }
-        
-        .service-card:nth-child(3) {
-            border-left-color: #FFC107;
-        }
-        
-        /* Form inputs */
+
         input, textarea, select {
             background: var(--bg-light);
             border: 1px solid var(--primary);
@@ -326,35 +217,44 @@
             font-size: 14px;
         }
         
-        /* Gallery filters */
-        .filter-btn {
-            background: transparent;
-            color: var(--primary);
-            border: 1px solid var(--primary);
-            padding: 12px 28px;
-            border-radius: 30px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+        footer {
+            background: var(--bg-light) !important;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        
+        footer h3 {
+            color: var(--primary) !important;
+        }
+        
+        footer a:hover {
+            color: var(--secondary) !important;
+        }
+        
+        nav a {
+            position: relative;
             transition: all 0.3s ease;
+            color: var(--text-secondary);
         }
         
-        .filter-btn:hover, .filter-btn.active {
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
             background: var(--primary);
-            color: white;
+            transition: width 0.3s ease;
         }
         
-        /* Gallery items */
-        .gallery-item {
-            border: 1px solid var(--primary);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        nav a:hover {
+            color: var(--primary) !important;
         }
         
-        .gallery-item:hover {
-            border-color: var(--secondary);
-            transform: scale(1.05);
+        nav a:hover::after {
+            width: 100%;
         }
-        
+
         /* Lightbox Modal Styles */
         .lightbox-modal {
             position: fixed;
@@ -381,7 +281,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(17, 17, 17, 0.95); /* Dark overlay */
         }
         
         .lightbox-content {
@@ -400,6 +300,7 @@
             border: 3px solid var(--primary);
             border-radius: 15px;
             overflow: hidden;
+            background: #000;
         }
         
         .lightbox-image {
@@ -413,19 +314,6 @@
             margin-top: 24px;
             text-align: center;
             max-width: 600px;
-        }
-        
-        .lightbox-category {
-            display: inline-block;
-            background: var(--primary);
-            color: white;
-            padding: 8px 20px;
-            border-radius: 25px;
-            font-size: 14px;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 16px;
         }
         
         .lightbox-title {
@@ -448,17 +336,16 @@
             font-weight: 600;
         }
         
-        /* Botón de cierre */
         .lightbox-close {
-            position: absolute;
-            top: -60px;
-            right: 0;
+            position: fixed;
+            top: 20px;
+            right: 20px;
             background: var(--primary);
             border: none;
             width: 50px;
             height: 50px;
             border-radius: 50%;
-            color: white;
+            color: #111; /* Dark color for text on gold button */
             font-size: 24px;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -469,13 +356,12 @@
             transform: rotate(90deg) scale(1.1);
         }
         
-        /* Botones de navegación */
         .lightbox-prev,
         .lightbox-next {
-            position: absolute;
+            position: fixed; /* Use fixed to position relative to viewport */
             top: 50%;
             transform: translateY(-50%);
-            background: rgba(0, 123, 255, 0.2);
+            background: rgba(212, 175, 55, 0.2); /* Gold transparent */
             border: 2px solid var(--primary);
             width: 60px;
             height: 60px;
@@ -484,6 +370,7 @@
             font-size: 24px;
             cursor: pointer;
             transition: all 0.3s ease;
+            z-index: 10001;
         }
         
         .lightbox-prev {
@@ -497,98 +384,27 @@
         .lightbox-prev:hover,
         .lightbox-next:hover {
             background: var(--primary);
-            color: white;
+            color: #111; /* Dark color for text on gold button */
             transform: translateY(-50%) scale(1.15);
-        }
-        
-        /* Footer */
-        footer {
-            background: var(--bg-light) !important;
-            border-top: 1px solid var(--primary);
-        }
-        
-        footer h3 {
-            color: var(--primary) !important;
-        }
-        
-        footer a:hover {
-            color: var(--secondary) !important;
-        }
-        
-        /* Social icons */
-        .social-icon {
-            transition: all 0.3s ease;
-            color: var(--primary);
-        }
-        
-        .social-icon:hover {
-            color: var(--secondary);
-            transform: scale(1.2) rotate(5deg);
-        }
-        
-        /* Testimonial cards */
-        .testimonial-card {
-            border-left: 4px solid var(--secondary);
-            background: var(--bg-secondary) !important;
-        }
-        
-        /* Menu links */
-        nav a {
-            position: relative;
-            transition: all 0.3s ease;
-        }
-        
-        nav a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--primary);
-            transition: width 0.3s ease;
-        }
-        
-        nav a:hover {
-            color: var(--primary) !important;
-        }
-        
-        nav a:hover::after {
-            width: 100%;
-        }
-        
-        /* Responsive ajustes */
-        @media (max-width: 768px) {
-            .hero-swiper {
-                min-height: 500px;
-            }
-            
-            h1 {
-                font-size: 2.5rem !important;
-            }
-            
-            h2 {
-                font-size: 2rem !important;
-            }
         }
     </style>
 </head>
-<body>
+<body class="bg-bg-light">
 
     <header id="header" class="fixed w-full top-0 z-50 bg-transparent transition-all duration-300">
-        <nav class="container mx-auto px-4 py-4">
+        <nav class="container mx-auto px-4 py-2">
             <div class="flex justify-between items-center">
-                <div class="flex items-center space-x-2">
-                    <i class="fas fa-stethoscope text-3xl" style="color: var(--primary);"></i>
-                    <span class="text-2xl md:text-3xl font-bold tracking-tight" style="font-family: 'Montserrat', sans-serif; color: var(--primary);">Dr. Luis Taleno</span>
-                </div>
+                <a href="#inicio" class="flex items-center space-x-2">
+                    <img src="assets/img/galeria/logo1.jpg" alt="Dr. Luis Taleno Logo" class="h-16 md:h-20">
+                    <p class="font-calligraphic text-3xl md:text-4xl text-primary">Dr. Luis Taleno</p>
+                </a>
                 
-                <ul class="hidden md:flex space-x-8 font-semibold" style="color: var(--text-primary); font-size: 16px;">
-                    <li><a href="#inicio" class="transition">Inicio</a></li>
-                    <li><a href="#sobre-doctor" class="transition">Sobre el Doctor</a></li>
-                    <li><a href="#servicios" class="transition">Servicios</a></li>
-                    <li><a href="#galeria" class="transition">Galería Casos</a></li>
-                    <li><a href="#contacto" class="transition">Contacto</a></li>
+                <ul class="hidden md:flex space-x-8 font-semibold text-lg">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#sobre-doctor">Sobre el Doctor</a></li>
+                    <li><a href="#especialidades-principales">Servicios</a></li>
+                    <li><a href="#galeria">Galería</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
                 </ul>
                 
                 <button id="mobile-menu-btn" class="md:hidden text-2xl z-50" style="color: var(--primary);">
@@ -596,15 +412,15 @@
                 </button>
             </div>
             
-           <div id="mobile-menu" class="mobile-menu md:hidden mt-4">
-            <ul class="flex flex-col space-y-4 font-semibold text-center text-lg" style="color: var(--text-primary);">
-                <li><a href="#inicio" class="block py-2 hover:text-var(--primary) transition">Inicio</a></li>
-                <li><a href="#sobre-doctor" class="block py-2 hover:text-var(--primary) transition">Sobre el Doctor</a></li>
-                <li><a href="#servicios" class="block py-2 hover:text-var(--primary) transition">Servicios</a></li>
-                <li><a href="#galeria" class="block py-2 hover:text-var(--primary) transition">Galería Casos</a></li>
-                <li><a href="#contacto" class="block py-2 hover:text-var(--primary) transition">Contacto</a></li>
-            </ul>
-        </div>
+           <div id="mobile-menu" class="mobile-menu md:hidden mt-4 rounded-lg">
+                <ul class="flex flex-col space-y-4 font-semibold text-center text-lg p-4">
+                    <li><a href="#inicio" class="block py-2">Inicio</a></li>
+                    <li><a href="#sobre-doctor" class="block py-2">Sobre el Doctor</a></li>
+                    <li><a href="#especialidades-principales" class="block py-2">Servicios</a></li>
+                    <li><a href="#galeria" class="block py-2">Galería</a></li>
+                    <li><a href="#contacto" class="block py-2">Contacto</a></li>
+                </ul>
+            </div>
         </nav>
     </header>
 
@@ -613,9 +429,9 @@
             <div class="swiper-wrapper">
                 <div class="swiper-slide hero-slide" style="background-image: url('https://images.pexels.com/photos/4167541/pexels-photo-4167541.jpeg?auto=compress&cs=tinysrgb&w=1920');">
                     <div class="relative z-10 h-full flex items-center justify-center text-center">
-                        <div class="text-black px-4" data-aos="fade-up">
-                            <h1 class="text-4xl md:text-6xl font-bold mb-4">Tu confianza, nuestra prioridad. Tu belleza, nuestro compromiso</h1>
-                            <p class="text-x2 md:text-1xl mb-4">Nuestro enfoque combina experiencia médica, precisión estética y un trato humano cercano. Te guiamos en cada paso del proceso para que tomes decisiones seguras y te sientas en confianza con cada cambio que elijas realizar.</p>
+                        <div class="px-4" data-aos="fade-up">
+                            <h1 class="text-6xl md:text-8xl font-calligraphic mb-4 text-white">Tu Confianza, Nuestra Prioridad</h1>
+                            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">Nuestro enfoque combina experiencia médica, precisión estética y un trato humano cercano.</p>
                             <a href="#contacto" class="btn-cta">Agendar Consulta Gratuita</a>
                         </div>
                     </div>
@@ -623,51 +439,41 @@
                 
                 <div class="swiper-slide hero-slide" style="background-image: url('https://images.pexels.com/photos/4225880/pexels-photo-4225880.jpeg?auto=compress&cs=tinysrgb&w=1920');">
                     <div class="relative z-10 h-full flex items-center justify-center text-center">
-                        <div class="text-black px-4" data-aos="fade-up">
-                            <h1 class="text-4xl md:text-6xl font-bold mb-4">Cirugía Plástica con Visión de Arte y Humanidad</h1>
-                            <p class="text-x2 md:text-2xl mb-8">Escuchamos, evaluamos y explicamos con claridad para una toma de decisiones segura.</p>
+                        <div class="px-4" data-aos="fade-up">
+                            <h1 class="text-6xl md:text-8xl font-calligraphic mb-4 text-white">Cirugía Plástica con Visión de Arte</h1>
+                            <p class="text-xl md:text-2xl mb-8">Escuchamos, evaluamos y explicamos con claridad para una toma de decisiones segura.</p>
                             <a href="#sobre-doctor" class="btn-cta">Conocer al Doctor</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="swiper-slide hero-slide" style="background-image: url('assets/img/1.png');">
-                    <div class="relative z-10 h-full flex items-center justify-center text-center">
-                        <div class="text-black px-4" data-aos="fade-up">
-                            <h1 class="text-4xl md:text-6xl font-bold mb-4">Descubre la Mejor Versión de Ti Mismo</h1>
-                            <p class="text-x2 md:text-2xl mb-8">Profesionalismo y empatía para tu proceso de transformación.</p>
-                            <a href="#galeria" class="btn-cta">Ver Casos</a>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="swiper-pagination"></div>
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next" style="color: var(--primary);"></div>
+            <div class="swiper-button-prev" style="color: var(--primary);"></div>
         </div>
     </section>
 
-    <section id="sobre-doctor" class="py-24" style="background: var(--bg-secondary);">
+    <section id="sobre-doctor" class="py-24">
         <div class="container mx-auto px-4">
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div data-aos="fade-right">
-                    <img src="assets/img/datos.jpg" alt="Dr. Luis Taleno" class="rounded-2xl" style="border: 3px solid var(--primary);">
+                    <video src="assets/img/galeria/dr.mp4" loop autoplay muted playsinline class="rounded-2xl w-full h-auto" style="border: 3px solid var(--primary);"></video>
                 </div>
-                <div data-aos="fade-left" style="border-left: 4px solid var(--secondary); padding-left: 24px;">
-                    <h2 class="text-4xl md:text-5xl font-bold mb-4">Dr. Luis Taleno</h2>
-                    <h3 class="text-2xl font-bold mb-6" style="color: var(--primary);">Cirujano Plástico Certificado</h3>
+                <div data-aos="fade-left">
+                    <h2 class="text-5xl md:text-7xl font-calligraphic mb-4">Dr. Luis Taleno</h2>
+                    <h3 class="text-2xl font-bold mb-6" style="color: var(--secondary);">Cirujano Plástico Certificado</h3>
                     <p class="text-lg mb-4 leading-relaxed">
-                        Soy cirujano plástico y mi labor va más allá de transformar una parte del cuerpo; busco mejorar la armonía, la autoestima y el bienestar general de cada persona que llega a mi consulta. Antes de cualquier procedimiento, escucho con atención lo que el paciente desea, evalúo sus características físicas y explico con claridad cada opción disponible, asegurándome de que comprenda los beneficios y los límites de la cirugía.
+                        Soy cirujano plástico y mi labor va más allá de transformar una parte del cuerpo; busco mejorar la armonía, la autoestima y el bienestar general de cada persona que llega a mi consulta.
                     </p>
                     <p class="text-lg mb-6 leading-relaxed">
                         Para mí, la cirugía plástica no es solo una técnica médica, sino un arte que exige sensibilidad, responsabilidad y dedicación. Cada paciente representa una historia única, y mi misión es acompañarlo en su proceso de cambio con profesionalismo y empatía.
                     </p>
                     <div class="grid grid-cols-2 gap-4 mb-6">
-                        <div class="card p-4 text-center" style="border-color: var(--primary);">
+                        <div class="card p-4 text-center">
                             <div class="text-4xl font-bold" style="color: var(--primary);">10+</div>
                             <div class="text-sm" style="color: var(--text-secondary);">Años de Trayectoria</div>
                         </div>
-                        <div class="card p-4 text-center" style="border-color: var(--secondary);">
+                        <div class="card p-4 text-center">
                             <div class="text-4xl font-bold" style="color: var(--secondary);">98%</div>
                             <div class="text-sm" style="color: var(--text-secondary);">Pacientes Satisfechos</div>
                         </div>
@@ -678,267 +484,164 @@
         </div>
     </section>
 
-    <section class="py-24 bg-texture">
+    <section id="especialidades-principales" class="py-24 bg-texture">
         <div class="container mx-auto px-4">
-            <h2 class="text-4xl md:text-5xl font-bold text-center mb-6" data-aos="fade-up">Especialidades Principales</h2>
-            <p class="text-center mb-20 text-lg" style="color: var(--text-secondary); font-weight: 500;" data-aos="fade-up">Procedimientos quirúrgicos con precisión estética y enfoque humano</p>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="card p-10 text-center" data-aos="fade-up" data-aos-delay="100" style="border-color: var(--primary);">
-                    <div class="text-7xl mb-6" style="color: var(--primary);">
-                        <i class="fas fa-heart"></i>
-                    </div>
-                    <h3 class="text-3xl font-bold mb-6" style="color: var(--primary);">Aumento de Senos</h3>
-                    <p class="leading-relaxed" style="color: var(--text-secondary); font-size: 16px;">
-                        Realce natural y proporcional con implantes de última generación. Técnicas quirúrgicas avanzadas que garantizan resultados armoniosos.
-                    </p>
-                </div>
-                
-                <div class="card p-10 text-center" data-aos="fade-up" data-aos-delay="200" style="border-color: var(--secondary);">
-                    <div class="text-7xl mb-6" style="color: var(--secondary);">
-                        <i class="fas fa-dumbbell"></i>
-                    </div>
-                    <h3 class="text-3xl font-bold mb-6" style="color: var(--secondary);">Liposucción y Esculpido</h3>
-                    <p class="leading-relaxed" style="color: var(--text-secondary); font-size: 16px;">
-                        Eliminación de grasa con técnicas avanzadas de mínima invasión. Esculpido corporal de alta definición.
-                    </p>
-                </div>
-                
-                <div class="card p-10 text-center" data-aos="fade-up" data-aos-delay="300" style="border-color: #FFC107;">
-                    <div class="text-7xl mb-6" style="color: #FFC107;">
-                        <i class="fas fa-smile"></i>
-                    </div>
-                    <h3 class="text-3xl font-bold mb-6" style="color: #FFC107;">Rinoplastia</h3>
-                    <p class="leading-relaxed" style="color: var(--text-secondary); font-size: 16px;">
-                        Remodelación nasal funcional y estética. Resultados naturales que mejoran la proporción facial.
-                    </p>
-                </div>
-                
-                <div class="card p-10 text-center" data-aos="fade-up" data-aos-delay="400" style="border-color: var(--primary);">
-                    <div class="text-7xl mb-6" style="color: var(--primary);">
-                        <i class="fas fa-face-smile"></i>
-                    </div>
-                    <h3 class="text-3xl font-bold mb-6" style="color: var(--primary);">Facelift</h3>
-                    <p class="leading-relaxed" style="color: var(--text-secondary); font-size: 16px;">
-                        Rejuvenecimiento facial con técnicas de mínima invasión. Apariencia fresca y natural, sin exceso de tensión.
-                    </p>
-                </div>
-
-                <div class="card p-10 text-center" data-aos="fade-up" data-aos-delay="500" style="border-color: var(--secondary);">
-                    <div class="text-7xl mb-6" style="color: var(--secondary);">
-                        <i class="fas fa-hand-holding-heart"></i>
-                    </div>
-                    <h3 class="text-3xl font-bold mb-6" style="color: var(--secondary);">Cirugía Post-Bariátrica</h3>
-                    <p class="leading-relaxed" style="color: var(--text-secondary); font-size: 16px;">
-                        Procedimientos especializados para contorno corporal después de una pérdida de peso masiva.
-                    </p>
-                </div>
-
-                <div class="card p-10 text-center" data-aos="fade-up" data-aos-delay="600" style="border-color: #FFC107;">
-                    <div class="text-7xl mb-6" style="color: #FFC107;">
-                        <i class="fas fa-child"></i>
-                    </div>
-                    <h3 class="text-3xl font-bold mb-6" style="color: #FFC107;">Abdominoplastia</h3>
-                    <p class="leading-relaxed" style="color: var(--text-secondary); font-size: 16px;">
-                        Reafirmación abdominal post-gestación o pérdida de peso. Resultados transformadores.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="servicios" class="py-24" style="background: var(--bg-secondary);">
-        <div class="container mx-auto px-4">
-            <h2 class="text-4xl md:text-5xl font-bold text-center mb-6" data-aos="fade-up">Procedimientos Quirúrgicos</h2>
-            <p class="text-center mb-20 text-lg" style="color: var(--text-secondary); font-weight: 500;" data-aos="fade-up">Técnicas avanzadas para resultados excepcionales</p>
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="card product-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="relative">
-                        <img src="assets/img/1.png" alt="Implantes de Seno" class="w-full h-48 object-cover">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-3" style="color: var(--text-primary);">Implantes de Seno</h3>
-                        <p class="mb-4 text-sm" style="color: var(--text-secondary);">Aumento con implantes de cohesivo alto. Técnica subfascial para resultados naturales.</p>
-                        <div class="text-sm mb-2" style="color: var(--secondary);"><i class="fas fa-clock"></i> Recuperación: 2 semanas</div>
-                        <div class="text-sm" style="color: var(--primary);"><i class="fas fa-check-circle"></i> Resultados: 3-6 meses</div>
+            <h2 class="text-5xl md:text-7xl font-calligraphic text-center mb-6" data-aos="fade-up">Especialidades Principales</h2>
+            <p class="text-center mb-20 text-lg" data-aos="fade-up">Procedimientos quirúrgicos con precisión estética y enfoque humano</p>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Cirugía de Párpados -->
+                <div class="card p-8 flex flex-col">
+                    <h3 class="text-2xl font-bold mb-4" style="color: var(--primary);">Cirugía de Párpados</h3>
+                    <p class="mb-4 flex-grow">Corrección de párpados para eliminar bolsas y flacidez, rejuveneciendo la mirada.</p>
+                    <div class="mt-auto pt-4 border-t border-gray-700">
+                        <div class="flex justify-between text-sm">
+                            <span style="color: var(--secondary);"><i class="fas fa-clock mr-2"></i>Recuperación: 1-2 semanas</span>
+                            <span style="color: var(--primary);"><i class="fas fa-check-circle mr-2"></i>Resultados: 1-3 meses</span>
+                        </div>
                     </div>
                 </div>
-
-                <div class="card product-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="relative">
-                        <img src="https://images.pexels.com/photos/6663388/pexels-photo-6663388.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Levantamiento de Senos" class="w-full h-48 object-cover">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-3" style="color: var(--text-primary);">Levantamiento de Senos</h3>
-                        <p class="mb-4 text-sm" style="color: var(--text-secondary);">Elevación sin implantes. Indicado en casos de ptosis mamaria o cambios post-gestación.</p>
-                        <div class="text-sm mb-2" style="color: var(--secondary);"><i class="fas fa-clock"></i> Recuperación: 3-4 semanas</div>
-                        <div class="text-sm" style="color: var(--primary);"><i class="fas fa-check-circle"></i> Resultados: 6 meses</div>
-                    </div>
-                </div>
-
-                <div class="card product-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="relative">
-                        <img src="assets/img/4.png" alt="Liposucción HD" class="w-full h-48 object-cover">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-3" style="color: var(--text-primary);">Liposucción HD</h3>
-                        <p class="mb-4 text-sm" style="color: var(--text-secondary);">Remodelación avanzada para marcar músculos. Técnica VASER o Microaire.</p>
-                        <div class="text-sm mb-2" style="color: var(--secondary);"><i class="fas fa-clock"></i> Recuperación: 3 semanas</div>
-                        <div class="text-sm" style="color: var(--primary);"><i class="fas fa-check-circle"></i> Resultados: 3-6 meses</div>
+                <!-- Rinoplastia -->
+                <div class="card p-8 flex flex-col">
+                    <h3 class="text-2xl font-bold mb-4" style="color: var(--primary);">Rinoplastia</h3>
+                    <p class="mb-4 flex-grow">Remodelación nasal para mejorar la proporción facial y la función respiratoria.</p>
+                    <div class="mt-auto pt-4 border-t border-gray-700">
+                        <div class="flex justify-between text-sm">
+                            <span style="color: var(--secondary);"><i class="fas fa-clock mr-2"></i>Recuperación: 1-2 semanas</span>
+                            <span style="color: var(--primary);"><i class="fas fa-check-circle mr-2"></i>Resultados: 6-12 meses</span>
+                        </div>
                     </div>
                 </div>
-
-                <div class="card product-card" data-aos="fade-up" data-aos-delay="400">
-                    <div class="relative">
-                        <img src="assets/img/2.jpg" alt="Rinoplastia" class="w-full h-48 object-cover">
-                        <div class="badge premium">TOP</div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-3" style="color: var(--text-primary);">Rinoplastia</h3>
-                        <p class="mb-4 text-sm" style="color: var(--text-secondary);">Refinamiento y corrección del tabique. Resultados que armonizan con el rostro.</p>
-                        <div class="text-sm mb-2" style="color: var(--secondary);"><i class="fas fa-clock"></i> Recuperación: 1 semana</div>
-                        <div class="text-sm" style="color: var(--primary);"><i class="fas fa-check-circle"></i> Progresivo 1 año</div>
+                <!-- Aumento de Labios, Mentón y Mejillas -->
+                <div class="card p-8 flex flex-col">
+                    <h3 class="text-2xl font-bold mb-4" style="color: var(--primary);">Aumento Facial</h3>
+                    <p class="mb-4 flex-grow">Aumento y definición de labios, mentón y mejillas con rellenos o implantes para mayor armonía.</p>
+                    <div class="mt-auto pt-4 border-t border-gray-700">
+                        <div class="flex justify-between text-sm">
+                            <span style="color: var(--secondary);"><i class="fas fa-clock mr-2"></i>Recuperación: 1-5 días</span>
+                            <span style="color: var(--primary);"><i class="fas fa-check-circle mr-2"></i>Resultados: Inmediatos</span>
+                        </div>
                     </div>
                 </div>
-                
-                <div class="card product-card" data-aos="fade-up" data-aos-delay="500">
-                    <div class="relative">
-                        <img src="https://images.pexels.com/photos/3768128/pexels-photo-3768128.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Abdominoplastia" class="w-full h-48 object-cover">
-                        <div class="badge oferta">Oferta</div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-3" style="color: var(--text-primary);">Abdominoplastia</h3>
-                        <p class="mb-4 text-sm" style="color: var(--text-secondary);">Eliminación de exceso de piel y grasa. Músculos abdominales cosidos y estirado.</p>
-                        <div class="text-sm mb-2" style="color: var(--secondary);"><i class="fas fa-clock"></i> Recuperación: 2-3 semanas</div>
-                        <div class="text-sm" style="color: var(--primary);"><i class="fas fa-check-circle"></i> Progresivo 3-6 meses</div>
+                <!-- Levantamiento de Cejas -->
+                <div class="card p-8 flex flex-col">
+                    <h3 class="text-2xl font-bold mb-4" style="color: var(--primary);">Levantamiento de Cejas</h3>
+                    <p class="mb-4 flex-grow">Eleva la posición de las cejas, corrigiendo flacidez y suavizando líneas de expresión.</p>
+                    <div class="mt-auto pt-4 border-t border-gray-700">
+                        <div class="flex justify-between text-sm">
+                            <span style="color: var(--secondary);"><i class="fas fa-clock mr-2"></i>Recuperación: 1-2 semanas</span>
+                            <span style="color: var(--primary);"><i class="fas fa-check-circle mr-2"></i>Resultados: 1-3 meses</span>
+                        </div>
                     </div>
                 </div>
-
-                <div class="card product-card" data-aos="fade-up" data-aos-delay="600">
-                    <div class="relative">
-                        <img src="assets/img/4.png" alt="Blefaroplastia" class="w-full h-48 object-cover">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-3" style="color: var(--text-primary);">Blefaroplastia</h3>
-                        <p class="mb-4 text-sm" style="color: var(--text-secondary);">Corrección de párpados superiores e inferiores. Eliminación de bolsas y flacidez.</p>
-                        <div class="text-sm mb-2" style="color: var(--secondary);"><i class="fas fa-clock"></i> Recuperación: 1-2 semanas</div>
-                        <div class="text-sm" style="color: var(--primary);"><i class="fas fa-check-circle"></i> Cambio inmediato</div>
-                    </div>
-                </div>
-
-                <div class="card product-card" data-aos="fade-up" data-aos-delay="700">
-                    <div class="relative">
-                        <img src="https://images.pexels.com/photos/6663361/pexels-photo-6663361.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Gluteoplastia" class="w-full h-48 object-cover">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-3" style="color: var(--text-primary);">Gluteoplastia</h3>
-                        <p class="mb-4 text-sm" style="color: var(--text-secondary);">Aumento de glúteos con implantes o lipoinyección. Resultados proporcionales y naturales.</p>
-                        <div class="text-sm mb-2" style="color: var(--secondary);"><i class="fas fa-clock"></i> Recuperación: 3-4 semanas</div>
-                        <div class="text-sm" style="color: var(--primary);"><i class="fas fa-check-circle"></i> Resultados: 3-6 meses</div>
+                <!-- Ritidoplastia (Lifting Facial) -->
+                <div class="card p-8 flex flex-col">
+                    <h3 class="text-2xl font-bold mb-4" style="color: var(--primary);">Lifting Facial</h3>
+                    <p class="mb-4 flex-grow">Rejuvenecimiento facial que estira la piel para un aspecto más fresco y juvenil.</p>
+                    <div class="mt-auto pt-4 border-t border-gray-700">
+                        <div class="flex justify-between text-sm">
+                            <span style="color: var(--secondary);"><i class="fas fa-clock mr-2"></i>Recuperación: 2-4 semanas</span>
+                            <span style="color: var(--primary);"><i class="fas fa-check-circle mr-2"></i>Resultados: 3-6 meses</span>
+                        </div>
                     </div>
                 </div>
-
-                <div class="card product-card" data-aos="fade-up" data-aos-delay="800">
-                    <div class="relative">
-                        <img src="assets/img/3.png" alt="Tratamientos No-Quirúrgicos" class="w-full h-48 object-cover">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-3" style="color: var(--text-primary);">Tratamientos No-Quirúrgicos</h3>
-                        <p class="mb-4 text-sm" style="color: var(--text-secondary);">Aplicación de Botox, rellenos de ácido hialurónico y tratamientos de rejuvenecimiento facial.</p>
-                        <div class="text-sm mb-2" style="color: var(--secondary);"><i class="fas fa-clock"></i> Recuperación: Inmediata</div>
-                        <div class="text-sm" style="color: var(--primary);"><i class="fas fa-check-circle"></i> Resultados: 1 semana</div>
+                <!-- Otoplastia -->
+                <div class="card p-8 flex flex-col">
+                    <h3 class="text-2xl font-bold mb-4" style="color: var(--primary);">Otoplastia</h3>
+                    <p class="mb-4 flex-grow">Corrección de la forma y posición de las orejas para mejorar la simetría y confianza.</p>
+                    <div class="mt-auto pt-4 border-t border-gray-700">
+                        <div class="flex justify-between text-sm">
+                            <span style="color: var(--secondary);"><i class="fas fa-clock mr-2"></i>Recuperación: 1 semana</span>
+                            <span style="color: var(--primary);"><i class="fas fa-check-circle mr-2"></i>Resultados: 1-2 meses</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
-    <section class="py-24 bg-texture">
+    
+    <section id="galeria" class="py-24">
         <div class="container mx-auto px-4">
-            <h2 class="text-4xl md:text-5xl font-bold text-center mb-6" data-aos="fade-up">Nuestro Compromiso</h2>
-            <p class="text-center mb-20 text-lg" style="color: var(--text-secondary); font-weight: 500;" data-aos="fade-up">La Cirugía Plástica como arte: Sensibilidad, Responsabilidad y Empatía</p>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="card service-card p-10 text-center" data-aos="fade-up" data-aos-delay="100">
-                    <div class="text-7xl mb-6" style="color: var(--primary);">
-                        <i class="fas fa-certificate"></i>
-                    </div>
-                    <h3 class="text-3xl font-bold mb-5" style="color: var(--primary);">Excelencia y Seguridad</h3>
-                    <p class="leading-relaxed" style="color: var(--text-secondary); font-size: 16px;">
-                        Sólo utilizamos tecnología y materiales de alta gama, operando en clínicas certificadas con los más altos estándares para garantizar tu bienestar.
-                    </p>
-                </div>
-                
-                <div class="card service-card p-10 text-center" data-aos="fade-up" data-aos-delay="200">
-                    <div class="text-7xl mb-6" style="color: var(--secondary);">
-                        <i class="fas fa-handshake"></i>
-                    </div>
-                    <h3 class="text-3xl font-bold mb-5" style="color: var(--secondary);">Arte y Humanidad</h3>
-                    <p class="leading-relaxed" style="color: var(--text-secondary); font-size: 16px;">
-                        Cada paciente es una historia única. La cirugía plástica es un arte que exige sensibilidad, profesionalismo y empatía para acompañarte en tu proceso de cambio.
-                    </p>
-                </div>
-                
-                <div class="card service-card p-10 text-center" data-aos="fade-up" data-aos-delay="300">
-                    <div class="text-7xl mb-6" style="color: #FFC107;">
-                        <i class="fas fa-credit-card"></i>
-                    </div>
-                    <h3 class="text-3xl font-bold mb-5" style="color: #FFC107;">Financiamiento Flexible</h3>
-                    <p class="leading-relaxed" style="color: var(--text-secondary); font-size: 16px;">
-                        Ofrecemos planes de pago flexibles y accesibles para facilitar que logres tus objetivos estéticos sin comprometer tu economía.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="galeria" class="py-24" style="background: var(--bg-secondary);">
-        <div class="container mx-auto px-4">
-            <h2 class="text-4xl md:text-5xl font-bold text-center mb-6" data-aos="fade-up">Galería de Casos</h2>
-            <p class="text-center mb-12 text-lg" style="color: var(--text-secondary); font-weight: 500;" data-aos="fade-up">Resultados reales que demuestran nuestra dedicación y precisión</p>
+            <h2 class="text-5xl md:text-7xl font-calligraphic text-center mb-6" data-aos="fade-up">Galería de Casos</h2>
+            <p class="text-center mb-12 text-lg" data-aos="fade-up">Resultados reales que demuestran nuestra dedicación y precisión</p>
             
-            <div class="flex flex-wrap justify-center gap-4 mb-16" data-aos="fade-up">
-                <button class="filter-btn active" data-filter="all">Todo</button>
-                <button class="filter-btn" data-filter="Senos">Senos</button>
-                <button class="filter-btn" data-filter="Nariz">Nariz</button>
-                <button class="filter-btn" data-filter="Facial">Facial</button>
-                <button class="filter-btn" data-filter="Cuerpo">Cuerpo</button>
-            </div>
-            
-            <div class="grid md:grid-cols-3 gap-4">
-                <div class="gallery-item h-64" data-id="0" data-category="Senos" data-title="Mamoplastia Aumento" data-description="Aumento de senos con implantes de cohesivo alto. Resultados naturales y proporcionales." data-aos="zoom-in" data-aos-delay="100">
-                    <img src="assets/img/1.png" alt="Mamoplastia Aumento">
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                <div class="gallery-item h-64" data-id="0" data-title="Caso de Galería" data-description="Uno de nuestros casos de éxito." data-aos="zoom-in">
+                    <img src="assets/img/galeria/f (1).jpg" alt="Caso de Galería">
                 </div>
-                <div class="gallery-item h-64" data-id="1" data-category="Nariz" data-title="Rinoplastia Refinamiento" data-description="Refinamiento de nariz con resultados armónicos con el rostro. Técnica cerrada." data-aos="zoom-in" data-aos-delay="200">
-                    <img src="https://images.pexels.com/photos/4225880/pexels-photo-4225880.jpeg" alt="Rinoplastia Refinamiento">
+                <div class="gallery-item h-64" data-id="1" data-title="Caso de Galería" data-description="Uno de nuestros casos de éxito." data-aos="zoom-in">
+                    <img src="assets/img/galeria/f (2).jpg" alt="Caso de Galería">
                 </div>
-                <div class="gallery-item h-64" data-id="2" data-category="Facial" data-title="Mini Facelift" data-description="Levantamiento facial mínimamente invasivo. Rejuvenecimiento de 10 años." data-aos="zoom-in" data-aos-delay="300">
-                    <img src="https://images.pexels.com/photos/4167541/pexels-photo-4167541.jpeg" alt="Mini Facelift">
+                <div class="gallery-item h-64" data-id="2" data-title="Caso de Galería" data-description="Uno de nuestros casos de éxito." data-aos="zoom-in">
+                    <img src="assets/img/galeria/f (3).jpg" alt="Caso de Galería">
                 </div>
-                <div class="gallery-item h-64" data-id="3" data-category="Cuerpo" data-title="Abdominoplastia" data-description="Eliminación de exceso de piel en el área abdominal. Restauración del tono muscular." data-aos="zoom-in" data-aos-delay="400">
-                    <img src="assets/img/2.jpg" alt="Abdominoplastia">
+                <div class="gallery-item h-64" data-id="3" data-title="Caso de Galería" data-description="Uno de nuestros casos de éxito." data-aos="zoom-in">
+                    <img src="assets/img/galeria/f (4).jpg" alt="Caso de Galería">
                 </div>
-                <div class="gallery-item h-64" data-id="4" data-category="Senos" data-title="Mastopexia" data-description="Levantamiento de senos con resultados firmes y estéticos." data-aos="zoom-in" data-aos-delay="500">
-                    <img src="https://images.pexels.com/photos/6663361/pexels-photo-6663361.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Mastopexia">
+                <div class="gallery-item h-64" data-id="4" data-title="Caso de Galería" data-description="Uno de nuestros casos de éxito." data-aos="zoom-in">
+                    <img src="assets/img/galeria/f (5).jpg" alt="Caso de Galería">
                 </div>
-                <div class="gallery-item h-64" data-id="5" data-category="Nariz" data-title="Septoplastia" data-description="Corrección funcional y estética del tabique nasal." data-aos="zoom-in" data-aos-delay="600">
-                    <img src="assets/img/2.jpg" alt="Septoplastia">
+                <div class="gallery-item h-64" data-id="5" data-title="Caso de Galería" data-description="Uno de nuestros casos de éxito." data-aos="zoom-in">
+                    <img src="assets/img/galeria/f (6).jpg" alt="Caso de Galería">
                 </div>
-                <div class="gallery-item h-64" data-id="6" data-category="Facial" data-title="Blefaroplastia Superior" data-description="Corrección de párpados superiores para una mirada rejuvenecida." data-aos="zoom-in" data-aos-delay="100">
-                    <img src="assets/img/4.png" alt="Blefaroplastia Superior">
+                <div class="gallery-item h-64" data-id="6" data-title="Caso de Galería" data-description="Uno de nuestros casos de éxito." data-aos="zoom-in">
+                    <img src="assets/img/galeria/f (7).jpg" alt="Caso de Galería">
                 </div>
-                <div class="gallery-item h-64" data-id="7" data-category="Cuerpo" data-title="Liposucción Abdominal" data-description="Eliminación de grasa localizada en abdomen para contorno definido." data-aos="zoom-in" data-aos-delay="200">
-                    <img src="https://images.pexels.com/photos/6663388/pexels-photo-6663388.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Liposucción Abdominal">
+                <div class="gallery-item h-64" data-id="7" data-title="Caso de Galería" data-description="Uno de nuestros casos de éxito." data-aos="zoom-in">
+                    <img src="assets/img/galeria/f (8).jpg" alt="Caso de Galería">
                 </div>
-                <div class="gallery-item h-64" data-id="8" data-category="Senos" data-title="Reducción Mamaria" data-description="Reducción de senos para alivio de síntomas y proporción corporal." data-aos="zoom-in" data-aos-delay="300">
-                    <img src="https://images.pexels.com/photos/4173239/pexels-photo-4173239.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Reducción Mamaria">
+                <div class="gallery-item h-64" data-id="8" data-title="Caso de Galería" data-description="Uno de nuestros casos de éxito." data-aos="zoom-in">
+                    <img src="assets/img/galeria/f (9).jpg" alt="Caso de Galería">
                 </div>
-                <div class="gallery-item h-64" data-id="9" data-category="Nariz" data-title="Rinoplastia Secundaria" data-description="Corrección de rinoplastia previa para resultados óptimos." data-aos="zoom-in" data-aos-delay="400">
-                    <img src="https://images.pexels.com/photos/3768128/pexels-photo-3768128.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Rinoplastia Secundaria">
+                <div class="gallery-item h-64" data-id="9" data-title="Caso de Galería" data-description="Uno de nuestros casos de éxito." data-aos="zoom-in">
+                    <img src="assets/img/galeria/f (10).jpg" alt="Caso de Galería">
                 </div>
-                <div class="gallery-item h-64" data-id="10" data-category="Facial" data-title="Otoplastia" data-description="Corrección de orejas prominentes para armonía facial." data-aos="zoom-in" data-aos-delay="500">
-                    <img src="https://images.pexels.com/photos/3962286/pexels-photo-3962286.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Otoplastia">
+                <div class="gallery-item h-64" data-id="10" data-title="Caso de Galería" data-description="Uno de nuestros casos de éxito." data-aos="zoom-in">
+                    <img src="assets/img/galeria/f (11).jpg" alt="Caso de Galería">
                 </div>
-                <div class="gallery-item h-64" data-id="11" data-category="Cuerpo" data-title="Gluteoplastia con Lipoinyección" data-description="Aumento de glúteos usando grasa propia para resultados naturales." data-aos="zoom-in" data-aos-delay="600">
-                    <img src="https://images.pexels.com/photos/4225880/pexels-photo-4225880.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Gluteoplastia con Lipoinyección">
+                <div class="gallery-item h-64" data-id="11" data-title="Caso de Galería" data-description="Uno de nuestros casos de éxito." data-aos="zoom-in">
+                    <img src="assets/img/galeria/f (12).jpg" alt="Caso de Galería">
+                </div>
+                <div class="gallery-item h-64" data-id="12" data-title="Caso de Galería" data-description="Uno de nuestros casos de éxito." data-aos="zoom-in">
+                    <img src="assets/img/galeria/f (13).jpg" alt="Caso de Galería">
+                </div>
+                <div class="gallery-item h-64" data-id="13" data-title="Caso de Galería" data-description="Uno de nuestros casos de éxito." data-aos="zoom-in">
+                    <img src="assets/img/galeria/f (14).jpg" alt="Caso de Galería">
+                </div>
+                <div class="gallery-item h-64" data-id="14" data-title="Caso de Galería" data-description="Uno de nuestros casos de éxito." data-aos="zoom-in">
+                    <img src="assets/img/galeria/f (15).jpg" alt="Caso de Galería">
+                </div>
+                <div class="gallery-item h-64" data-id="15" data-title="Caso de Galería" data-description="Uno de nuestros casos de éxito." data-aos="zoom-in">
+                    <img src="assets/img/galeria/f (16).jpg" alt="Caso de Galería">
+                </div>
+                <div class="gallery-item h-64" data-id="16" data-title="Caso de Galería" data-description="Uno de nuestros casos de éxito." data-aos="zoom-in">
+                    <img src="assets/img/galeria/f (17).jpg" alt="Caso de Galería">
+                </div>
+                <div class="gallery-item h-64" data-id="17" data-title="Caso de Galería" data-description="Uno de nuestros casos de éxito." data-aos="zoom-in">
+                    <img src="assets/img/galeria/f (18).jpg" alt="Caso de Galería">
+                </div>
+                <div class="gallery-item h-64" data-id="18" data-title="Caso de Galería" data-description="Uno de nuestros casos de éxito." data-aos="zoom-in">
+                    <img src="assets/img/galeria/f (19).jpg" alt="Caso de Galería">
+                </div>
+                <div class="gallery-item h-64" data-id="19" data-title="Caso de Galería" data-description="Uno de nuestros casos de éxito." data-aos="zoom-in">
+                    <img src="assets/img/galeria/f (20).jpg" alt="Caso de Galería">
+                </div>
+                <div class="gallery-item h-64" data-id="20" data-title="Caso de Galería" data-description="Uno de nuestros casos de éxito." data-aos="zoom-in">
+                    <img src="assets/img/galeria/f (21).jpg" alt="Caso de Galería">
+                </div>
+                <div class="gallery-item h-64" data-id="21" data-title="Caso de Galería" data-description="Uno de nuestros casos de éxito." data-aos="zoom-in">
+                    <img src="assets/img/galeria/f (22).jpg" alt="Caso de Galería">
+                </div>
+                <div class="gallery-item h-64" data-id="22" data-title="Caso de Galería" data-description="Uno de nuestros casos de éxito." data-aos="zoom-in">
+                    <img src="assets/img/galeria/f (23).jpg" alt="Caso de Galería">
+                </div>
+                <div class="gallery-item h-64" data-id="23" data-title="Caso de Galería" data-description="Uno de nuestros casos de éxito." data-aos="zoom-in">
+                    <img src="assets/img/galeria/f (24).jpg" alt="Caso de Galería">
+                </div>
+                <div class="gallery-item h-64" data-id="24" data-title="Caso de Galería" data-description="Uno de nuestros casos de éxito." data-aos="zoom-in">
+                    <img src="assets/img/galeria/f (25).jpg" alt="Caso de Galería">
+                </div>
+                <div class="gallery-item h-64" data-id="25" data-title="Caso de Galería" data-description="Uno de nuestros casos de éxito." data-aos="zoom-in">
+                    <img src="assets/img/galeria/f (26).jpg" alt="Caso de Galería">
                 </div>
             </div>
             
@@ -952,7 +655,7 @@
                         <img id="lightbox-image" class="lightbox-image" src="" alt="Gallery Image">
                     </div>
                     <div class="lightbox-info">
-                        <div id="lightbox-category" class="lightbox-category"></div>
+                        <div id="lightbox-category" class="lightbox-category" style="display: none;"></div>
                         <h3 id="lightbox-title" class="lightbox-title"></h3>
                         <p id="lightbox-description" class="lightbox-description"></p>
                         <div id="lightbox-counter" class="lightbox-counter"></div>
@@ -962,49 +665,46 @@
         </div>
     </section>
 
-    <section class="py-24 bg-texture">
+    <section id="testimonios" class="py-24 bg-texture">
         <div class="container mx-auto px-4">
-            <h2 class="text-4xl md:text-5xl font-bold text-center mb-6" data-aos="fade-up">Lo que Dicen Nuestros Pacientes</h2>
-            <p class="text-center mb-20 text-lg" style="color: var(--text-secondary); font-weight: 500;" data-aos="fade-up">Historias reales de transformación y confianza renovada</p>
+            <h2 class="text-5xl md:text-7xl font-calligraphic text-center mb-6" data-aos="fade-up">Lo que Dicen Nuestros Pacientes</h2>
+            <p class="text-center mb-20 text-lg" data-aos="fade-up">Historias reales de transformación y confianza renovada</p>
             
             <div class="swiper testimonialSwiper">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide p-4 md:p-8">
-                        <div class="testimonial-card p-6 md:p-10 rounded-xl" data-aos="fade-up" style="border-left-color: var(--primary);">
-                            <div class="text-xl mb-4 italic" style="color: var(--text-primary);">"El Dr. Taleno es un artista. Los resultados de mi abdominoplastia superaron mis expectativas. Su calidez humana me dio total confianza en el proceso."</div>
-                            <div class="flex items-center">
-                                <div>
-                                    <div class="font-bold text-lg" style="color: var(--primary);">Ana S.</div>
-                                    <div class="text-sm" style="color: var(--text-secondary);">Abdominoplastia</div>
-                                </div>
-                                <div class="stars ml-auto text-xl"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                            </div>
+                <div class="swiper-wrapper pb-16">
+                    <!-- Testimonio 1 -->
+                    <div class="swiper-slide">
+                        <div class="card p-8 text-center">
+                            <p class="text-xl italic mb-6">"El Dr. Taleno es un verdadero artista. Los resultados de mi cirugía superaron todas mis expectativas. Su profesionalismo y calidez humana me dieron total confianza."</p>
+                            <div class="font-bold text-lg" style="color: var(--primary);">- Paciente Anónimo</div>
                         </div>
                     </div>
-                    
-                    <div class="swiper-slide p-4 md:p-8">
-                        <div class="testimonial-card p-6 md:p-10 rounded-xl" data-aos="fade-up" data-aos-delay="100" style="border-left-color: var(--secondary);">
-                            <div class="text-xl mb-4 italic" style="color: var(--text-primary);">"La rinoplastia fue un éxito. El doctor es muy detallista y escuchó exactamente lo que quería. El cambio es sutil pero transformador."</div>
-                            <div class="flex items-center">
-                                <div>
-                                    <div class="font-bold text-lg" style="color: var(--secondary);">Carlos M.</div>
-                                    <div class="text-sm" style="color: var(--text-secondary);">Rinoplastia</div>
-                                </div>
-                                <div class="stars ml-auto text-xl"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
-                            </div>
+                    <!-- Testimonio 2 -->
+                    <div class="swiper-slide">
+                        <div class="card p-8 text-center">
+                            <p class="text-xl italic mb-6">"Estoy increíblemente feliz con el resultado. El doctor y su equipo me hicieron sentir segura y cuidada en todo momento. ¡Gracias por todo!"</p>
+                             <div class="font-bold text-lg" style="color: var(--primary);">- Paciente Anónimo</div>
                         </div>
                     </div>
-                    
-                    <div class="swiper-slide p-4 md:p-8">
-                        <div class="testimonial-card p-6 md:p-10 rounded-xl" data-aos="fade-up" data-aos-delay="200" style="border-left-color: #FFC107;">
-                            <div class="text-xl mb-4 italic" style="color: var(--text-primary);">"Su equipo y él me hicieron sentir segura en todo momento. Mi aumento de senos se ve increíble, totalmente natural y armónico."</div>
-                            <div class="flex items-center">
-                                <div>
-                                    <div class="font-bold text-lg" style="color: #FFC107;">Laura V.</div>
-                                    <div class="text-sm" style="color: var(--text-secondary);">Aumento de Senos</div>
-                                </div>
-                                <div class="stars ml-auto text-xl"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                            </div>
+                    <!-- Testimonio 3 -->
+                    <div class="swiper-slide">
+                        <div class="card p-8 text-center">
+                            <p class="text-xl italic mb-6">"El cambio en mi nariz fue sutil pero transformador, justo lo que quería. El Dr. Taleno tiene un ojo increíble para el detalle."</p>
+                            <div class="font-bold text-lg" style="color: var(--primary);">- Paciente Anónimo</div>
+                        </div>
+                    </div>
+                    <!-- Testimonio 4 -->
+                    <div class="swiper-slide">
+                        <div class="card p-8 text-center">
+                            <p class="text-xl italic mb-6">"Después de mi abdominoplastia, recuperé la confianza que había perdido. El proceso fue mucho más fácil de lo que imaginé gracias al excelente cuidado."</p>
+                            <div class="font-bold text-lg" style="color: var(--primary);">- Paciente Anónimo</div>
+                        </div>
+                    </div>
+                    <!-- Testimonio 5 -->
+                    <div class="swiper-slide">
+                        <div class="card p-8 text-center">
+                            <p class="text-xl italic mb-6">"No puedo dejar de recomendar al Dr. Taleno. Un profesional excepcional con un trato muy humano. Mi experiencia fue de 10/10."</p>
+                            <div class="font-bold text-lg" style="color: var(--primary);">- Paciente Anónimo</div>
                         </div>
                     </div>
                 </div>
@@ -1013,46 +713,47 @@
         </div>
     </section>
 
-   <section id="contacto" class="py-24" style="background: var(--bg-secondary);">
+   <section id="contacto" class="py-24">
     <div class="container mx-auto px-4">
-        <h2 class="text-4xl md:text-5xl font-bold text-center mb-6" data-aos="fade-up">
+        <h2 class="text-5xl md:text-7xl font-calligraphic text-center mb-6" data-aos="fade-up">
             Contacto y Consulta
         </h2>
-        <p class="text-center mb-16 text-lg" style="color: var(--text-secondary); font-weight: 500;" data-aos="fade-up">
+        <p class="text-center mb-16 text-lg" data-aos="fade-up">
             Comience su viaje hacia el bienestar estético con una consulta personalizada.
         </p>
         
         <div class="grid md:grid-cols-2 gap-12">
             <!-- FORMULARIO -->
             <div data-aos="fade-right">
-                <form id="contact-form" class="space-y-6 p-8 rounded-xl card shadow-lg" style="border: 2px solid var(--primary);">
+                <form id="contact-form" class="space-y-6 p-8 rounded-xl card shadow-lg">
                     <div>
                         <label for="name" class="block mb-2 font-medium">Nombre Completo</label>
-                        <input type="text" id="name" name="name" required class="w-full p-4 rounded-lg border focus:outline-none focus:ring-2 focus:ring-var(--primary)">
+                        <input type="text" id="name" name="name" required class="w-full p-4 rounded-lg">
                     </div>
                     <div>
                         <label for="email" class="block mb-2 font-medium">Correo Electrónico</label>
-                        <input type="email" id="email" name="email" required class="w-full p-4 rounded-lg border focus:outline-none focus:ring-2 focus:ring-var(--primary)">
+                        <input type="email" id="email" name="email" required class="w-full p-4 rounded-lg">
                     </div>
                     <div>
                         <label for="phone" class="block mb-2 font-medium">Teléfono</label>
-                        <input type="tel" id="phone" name="phone" required class="w-full p-4 rounded-lg border focus:outline-none focus:ring-2 focus:ring-var(--primary)">
+                        <input type="tel" id="phone" name="phone" required class="w-full p-4 rounded-lg">
                     </div>
                     <div>
                         <label for="service" class="block mb-2 font-medium">Servicio de Interés</label>
-                        <select id="service" name="service" required class="w-full p-4 rounded-lg border focus:outline-none focus:ring-2 focus:ring-var(--primary)">
+                        <select id="service" name="service" required class="w-full p-4 rounded-lg">
                             <option value="" disabled selected>Seleccione un procedimiento</option>
-                            <option value="Aumento Senos">Aumento de Senos</option>
+                            <option value="Cirugia de Parpados">Cirugía de Párpados</option>
                             <option value="Rinoplastia">Rinoplastia</option>
-                            <option value="Liposucción">Liposucción HD</option>
-                            <option value="Abdominoplastia">Abdominoplastia</option>
-                            <option value="Blefaroplastia">Blefaroplastia</option>
+                            <option value="Aumento Facial">Aumento Facial</option>
+                            <option value="Levantamiento de Cejas">Levantamiento de Cejas</option>
+                            <option value="Lifting Facial">Lifting Facial</option>
+                            <option value="Otoplastia">Otoplastia</option>
                             <option value="Otros">Otros</option>
                         </select>
                     </div>
                     <div>
                         <label for="message" class="block mb-2 font-medium">Su Mensaje</label>
-                        <textarea id="message" name="message" rows="5" required class="w-full p-4 rounded-lg border focus:outline-none focus:ring-2 focus:ring-var(--primary)"></textarea>
+                        <textarea id="message" name="message" rows="5" required class="w-full p-4 rounded-lg"></textarea>
                     </div>
                     <button type="button" onclick="enviarWhatsApp()" 
                     class="btn-cta w-full text-center py-4 text-lg font-semibold transition hover:shadow-xl">
@@ -1063,10 +764,9 @@
             
             <!-- INFORMACIÓN + MAPA -->
             <div data-aos="fade-left" class="space-y-8">
-                <!-- UBICACIÓN -->
                 <div>
-                    <h3 class="text-3xl font-bold mb-4" style="color: var(--primary);">Ubicación de la Clínica</h3>
-                    <p class="text-lg leading-relaxed" style="color: var(--text-secondary);">
+                    <h3 class="text-3xl font-bold mb-4">Ubicación de la Clínica</h3>
+                    <p class="text-lg leading-relaxed">
                         <i class="fas fa-map-marker-alt mr-3" style="color: var(--secondary);"></i>
                         <strong>Dr. Luis Taleno - Cirujano Plástico</strong><br>
                         Costado norte del Parque Central<br>
@@ -1074,9 +774,7 @@
                         <small class="text-sm block mt-2">(A 50 metros del Hospital Asunción)</small>
                     </p>
                 </div>
-
-                <!-- MAPA DE GOOGLE (pin exacto en el centro de Juigalpa) -->
-                <div class="rounded-xl overflow-hidden shadow-2xl border-4 border-white">
+                <div class="rounded-xl overflow-hidden shadow-2xl border-4 border-black">
                     <iframe 
                         width="100%" 
                         height="480" 
@@ -1087,7 +785,6 @@
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3859.379271027352!2d-85.3644726883026!3d12.106944032282297!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f6e3748f1a8c1e7%3A0x8b8f8d8f8d8f8d8f!2sParque%20Central%20de%20Juigalpa!5e0!3m2!1ses-419!2sni!4v1731370000000!5m2!1ses-419!2sni">
                     </iframe>
                 </div>
-
                 <!-- CONTACTO RÁPIDO -->
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-6 text-lg">
                     <div>
@@ -1095,11 +792,8 @@
                             <i class="fas fa-phone-alt mr-2"></i> Llámanos
                         </h3>
                         <p class="space-y-2" style="color: var(--text-secondary);">
-                            <a href="tel:+50589374569" class="block hover:text-var(--primary) font-semibold">+505 8937-4569</a>
-                            <a href="tel:+50577138241" class="block hover:text-var(--primary) font-semibold">+505 7713-8241</a>
-                            <a href="https://wa.me/50589374569" target="_blank" class="text-green-600 font-semibold flex items-center mt-3">
-                                <i class="fab fa-whatsapp mr-2 text-2xl"></i> WhatsApp
-                            </a>
+                            <a href="tel:89374569" class="block hover:text-var(--primary) font-semibold">8937-4569</a>
+                            <a href="tel:77138241" class="block hover:text-var(--primary) font-semibold">7713-8241</a>
                         </p>
                     </div>
 
@@ -1112,15 +806,12 @@
                         </a>
                     </div>
                 </div>
-
                 <!-- REDES SOCIALES -->
-                <div class="pt-6">
-                    <h3 class="text-2xl font-bold mb-5" style="color: var(--primary);">Síguenos</h3>
+                <div class="pt-6" data-aos="fade-up">
+                    <h3 class="text-3xl font-bold mb-4" style="color: var(--primary);">Síguenos</h3>
                     <div class="flex space-x-8 text-4xl">
-                        <a href="#" target="_blank" class="hover:text-blue-600 transition"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" target="_blank" class="hover:text-pink-600 transition"><i class="fab fa-instagram"></i></a>
-                        <a href="#" target="_blank" class="hover:text-red-600 transition"><i class="fab fa-youtube"></i></a>
-                        <a href="https://wa.me/50589374569" target="_blank" class="hover:text-green-500 transition"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.facebook.com/share/1FdTUreVTM/?mibextid=wwXIfr" target="_blank" class="transition" style="color: var(--primary);"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/ltaleno?igsh=M2RoNmtsczZjNHl5" target="_blank" class="transition" style="color: var(--primary);"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
             </div>
@@ -1130,19 +821,19 @@
 
     <footer class="py-12">
         <div class="container mx-auto px-4 text-center">
-            <div class="mb-6">
-                <span class="text-3xl font-bold" style="font-family: 'Montserrat', sans-serif; color: var(--primary);">Dr. Luis Taleno</span>
-                <p class="text-lg mt-2" style="color: var(--text-secondary); font-weight: 500;">Descubre la mejor versión de ti mismo</p>
+            <div class="flex justify-center items-center flex-col md:flex-row mb-6">
+                 <img src="assets/img/galeria/logo1.jpg" alt="Dr. Luis Taleno Logo" class="h-24">
+                 <p class="font-calligraphic text-5xl md:text-6xl text-primary md:ml-4">Dr. Luis Taleno</p>
             </div>
             
-            <div class="flex justify-center space-x-8 mb-6" style="color: var(--text-secondary);">
-                <a href="#inicio" class="hover:text-var(--primary) transition">Inicio</a>
-                <a href="#sobre-doctor" class="hover:text-var(--primary) transition">Sobre el Doctor</a>
-                <a href="#servicios" class="hover:text-var(--primary) transition">Servicios</a>
-                <a href="#contacto" class="hover:text-var(--primary) transition">Contacto</a>
+            <div class="flex justify-center space-x-8 mb-6">
+                <a href="#inicio">Inicio</a>
+                <a href="#sobre-doctor">Sobre el Doctor</a>
+                <a href="#servicios">Servicios</a>
+                <a href="#contacto">Contacto</a>
             </div>
             
-            <div class="text-sm" style="color: var(--text-secondary);">
+            <div class="text-sm">
                 &copy; 2025 Dr. Luis Taleno. Todos los derechos reservados.
             </div>
         </div>
@@ -1157,43 +848,36 @@
     
     <script>
         function enviarWhatsApp() {
-    // Capturamos los valores del formulario
-    const nombre   = document.getElementById('name').value.trim();
-    const email    = document.getElementById('email').value.trim();
-    const telefono = document.getElementById('phone').value.trim();
-    const servicio = document.getElementById('service').value;
-    const mensaje  = document.getElementById('message').value.trim();
+            const nombre   = document.getElementById('name').value.trim();
+            const email    = document.getElementById('email').value.trim();
+            const telefono = document.getElementById('phone').value.trim();
+            const servicio = document.getElementById('service').value;
+            const mensaje  = document.getElementById('message').value.trim();
 
-    // Validación rápida (opcional pero recomendada)
-    if (!nombre || !telefono || !servicio) {
-        alert('Por favor completa tu nombre, teléfono y servicio de interés');
-        return;
-    }
+            if (!nombre || !telefono || !servicio) {
+                alert('Por favor completa tu nombre, teléfono y servicio de interés');
+                return;
+            }
 
-    // Mensaje bonito y profesional que llegará al WhatsApp
-    const texto = `*¡Hola Dr. Luis Taleno!* %0A%0A` +
-                  `*Solicitud de Consulta*%0A%0A` +
-                  `👤 *Nombre:* ${nombre}%0A` +
-                  `📧 *Correo:* ${email || 'No proporcionado'}%0A` +
-                  `📱 *Teléfono:* ${telefono}%0A` +
-                  `🩺 *Servicio de interés:* ${servicio}%0A%0A` +
-                  `💬 *Mensaje:* %0A${mensaje || 'Sin mensaje adicional'}%0A%0A` +
-                  `_Enviado desde la página web drluistaleno.com_`;
+            const texto = `*¡Hola Dr. Luis Taleno!* %0A%0A` +
+                          `*Solicitud de Consulta*%0A%0A` +
+                          `👤 *Nombre:* ${nombre}%0A` +
+                          `📧 *Correo:* ${email || 'No proporcionado'}%0A` +
+                          `📱 *Teléfono:* ${telefono}%0A` +
+                          `🩺 *Servicio de interés:* ${servicio}%0A%0A` +
+                          `💬 *Mensaje:* %0A${mensaje || 'Sin mensaje adicional'}%0A%0A` +
+                          `_Enviado desde la página web_`;
 
-    // Número del doctor (con +505)
-    const numeroWhatsApp = "+50589374569";
+            const numeroWhatsApp = "50589374569";
+            window.open(`https://wa.me/${numeroWhatsApp}?text=${texto}`, '_blank');
+        }
 
-    // Abre WhatsApp (funciona perfecto en celular y escritorio)
-    window.open(`https://wa.me/${numeroWhatsApp}?text=${texto}`, '_blank');
-}
-        // Inicializar AOS (Animation On Scroll)
         AOS.init({
             duration: 800,
             once: true,
             mirror: false
         });
 
-        // Inicializar Swiper para el Hero
         const heroSwiper = new Swiper(".heroSwiper", {
             loop: true,
             effect: "fade",
@@ -1240,7 +924,6 @@
             },
         });
 
-        // Funcionalidad de Sticky Header
         window.addEventListener('scroll', function() {
             const header = document.getElementById('header');
             if (window.scrollY > 50) {
@@ -1250,7 +933,6 @@
             }
         });
 
-        // Funcionalidad de Menú Móvil
         document.getElementById('mobile-menu-btn').addEventListener('click', function() {
             const menu = document.getElementById('mobile-menu');
             menu.classList.toggle('active');
@@ -1258,7 +940,6 @@
             this.querySelector('i').classList.toggle('fa-times');
         });
         
-        // Cerrar menú móvil al hacer clic en un enlace
         document.querySelectorAll('#mobile-menu a').forEach(item => {
             item.addEventListener('click', () => {
                 const menu = document.getElementById('mobile-menu');
@@ -1269,36 +950,7 @@
             });
         });
 
-        // Funcionalidad de Filtrado de Galería
-        const filterButtons = document.querySelectorAll('.filter-btn');
         const galleryItems = document.querySelectorAll('.gallery-item');
-
-        filterButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                // Remover clase 'active' de todos los botones
-                filterButtons.forEach(btn => btn.classList.remove('active'));
-                // Agregar clase 'active' al botón clickeado
-                button.classList.add('active');
-
-                const filter = button.getAttribute('data-filter');
-
-                galleryItems.forEach(item => {
-                    const category = item.getAttribute('data-category');
-                    item.style.display = 'none'; // Ocultar por defecto para el efecto
-
-                    if (filter === 'all' || category === filter) {
-                        // Usar setTimeout para re-mostrar con un pequeño delay y permitir la animación
-                        setTimeout(() => {
-                            item.style.display = 'block';
-                            // Usar una librería de animación como AOS para manejar el fade-in si fuera necesario
-                            // item.classList.remove('hidden'); 
-                        }, 50); // Pequeño delay para permitir que el display: none se aplique primero
-                    }
-                });
-            });
-        });
-        
-        // Funcionalidad de Lightbox
         const lightboxModal = document.getElementById('lightbox-modal');
         const lightboxImage = document.getElementById('lightbox-image');
         const lightboxClose = document.querySelector('.lightbox-close');
@@ -1306,43 +958,26 @@
         const lightboxNext = document.querySelector('.lightbox-next');
         const lightboxTitle = document.getElementById('lightbox-title');
         const lightboxDescription = document.getElementById('lightbox-description');
-        const lightboxCategory = document.getElementById('lightbox-category');
         const lightboxCounter = document.getElementById('lightbox-counter');
         
         let currentGalleryIndex = 0;
-        let filteredItems = Array.from(galleryItems);
-
-        function updateFilteredItems() {
-            const activeFilter = document.querySelector('.filter-btn.active').getAttribute('data-filter');
-            filteredItems = Array.from(galleryItems).filter(item => {
-                const category = item.getAttribute('data-category');
-                return activeFilter === 'all' || category === activeFilter;
-            });
-        }
+        const allGalleryItems = Array.from(galleryItems);
 
         function openLightbox(index) {
-            updateFilteredItems();
-            currentGalleryIndex = filteredItems.findIndex(item => item.getAttribute('data-id') === galleryItems[index].getAttribute('data-id'));
+            currentGalleryIndex = index;
             
-            if (currentGalleryIndex === -1) {
-                // Si el elemento no se encuentra en el filtro actual, simplemente salir.
-                return;
-            }
-
-            const item = filteredItems[currentGalleryIndex];
+            const item = allGalleryItems[currentGalleryIndex];
             const imgSrc = item.querySelector('img').src;
             const title = item.getAttribute('data-title');
             const description = item.getAttribute('data-description');
-            const category = item.getAttribute('data-category');
 
             lightboxImage.src = imgSrc;
             lightboxTitle.textContent = title;
             lightboxDescription.textContent = description;
-            lightboxCategory.textContent = category;
-            lightboxCounter.textContent = `${currentGalleryIndex + 1} de ${filteredItems.length}`;
+            lightboxCounter.textContent = `${currentGalleryIndex + 1} de ${allGalleryItems.length}`;
             
             lightboxModal.classList.add('active');
-            document.body.style.overflow = 'hidden'; // Evitar scroll de fondo
+            document.body.style.overflow = 'hidden';
         }
 
         function closeLightbox() {
@@ -1351,27 +986,21 @@
         }
 
         function navigateLightbox(direction) {
-            if (filteredItems.length === 0) return;
-
+            if (allGalleryItems.length === 0) return;
             currentGalleryIndex += direction;
-
             if (currentGalleryIndex < 0) {
-                currentGalleryIndex = filteredItems.length - 1;
-            } else if (currentGalleryIndex >= filteredItems.length) {
+                currentGalleryIndex = allGalleryItems.length - 1;
+            } else if (currentGalleryIndex >= allGalleryItems.length) {
                 currentGalleryIndex = 0;
             }
-
-            const item = filteredItems[currentGalleryIndex];
+            const item = allGalleryItems[currentGalleryIndex];
             const imgSrc = item.querySelector('img').src;
             const title = item.getAttribute('data-title');
             const description = item.getAttribute('data-description');
-            const category = item.getAttribute('data-category');
-
             lightboxImage.src = imgSrc;
             lightboxTitle.textContent = title;
             lightboxDescription.textContent = description;
-            lightboxCategory.textContent = category;
-            lightboxCounter.textContent = `${currentGalleryIndex + 1} de ${filteredItems.length}`;
+            lightboxCounter.textContent = `${currentGalleryIndex + 1} de ${allGalleryItems.length}`;
         }
 
         galleryItems.forEach((item, index) => {
@@ -1385,54 +1014,12 @@
 
         document.addEventListener('keydown', (e) => {
             if (lightboxModal.classList.contains('active')) {
-                if (e.key === 'Escape') {
-                    closeLightbox();
-                } else if (e.key === 'ArrowLeft') {
-                    navigateLightbox(-1);
-                } else if (e.key === 'ArrowRight') {
-                    navigateLightbox(1);
-                }
+                if (e.key === 'Escape') closeLightbox();
+                else if (e.key === 'ArrowLeft') navigateLightbox(-1);
+                else if (e.key === 'ArrowRight') navigateLightbox(1);
             }
         });
 
-        // Funcionalidad de Formulario de Contacto (Simulación de envío)
-        const contactForm = document.getElementById('contact-form');
-        const formMessage = document.getElementById('form-message');
-
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-
-            // Validaciones mínimas
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const message = document.getElementById('message').value;
-
-            if (name === '' || email === '' || message === '') {
-                formMessage.textContent = 'Por favor, complete todos los campos requeridos.';
-                formMessage.className = 'mt-4 p-4 rounded-lg';
-                formMessage.style.background = 'rgba(255, 0, 0, 0.1)';
-                formMessage.style.color = 'red';
-                formMessage.style.border = '1px solid red';
-                formMessage.classList.remove('hidden');
-                return;
-            }
-
-            // Simulación de envío exitoso
-            formMessage.textContent = '¡Gracias por contactarnos! Nos pondremos en contacto contigo pronto.';
-            formMessage.className = 'mt-4 p-4 rounded-lg';
-            formMessage.style.background = 'rgba(0, 255, 0, 0.1)';
-            formMessage.style.color = 'green';
-            formMessage.style.border = '1px solid green';
-            formMessage.classList.remove('hidden');
-            contactForm.reset();
-
-            // Ocultar mensaje después de 5 segundos
-            setTimeout(() => {
-                formMessage.classList.add('hidden');
-            }, 5000);
-        });
-
-        // Desplazamiento suave para anclas
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
